@@ -11,7 +11,7 @@ class Database implements IDatabase
 
     function getConnection(
         string $host,
-        string $databse,
+        string $name,
         string $user,
         string $password
     ): PDO {

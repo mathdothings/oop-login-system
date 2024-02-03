@@ -29,7 +29,6 @@ class UserController
             $statement->bindValue('passwordHash', $user['passwordHash'], PDO::PARAM_STR);
             $statement->execute();
             $connection->commit();
-            echo 'saved';
         } catch (PDOException $exception) {
             $connection->rollBack();
             throw new PDOException($exception->getMessage());

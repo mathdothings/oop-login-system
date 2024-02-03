@@ -2,7 +2,7 @@
 
 namespace Services;
 
-use PDO;
+use \PDO;
 
 interface DatabaseInterface
 {

@@ -2,8 +2,8 @@
 
 namespace Services;
 
-use PDO;
-use PDOException;
+use \PDO;
+use \PDOException;
 
 class Database extends PDO implements DatabaseInterface
 {

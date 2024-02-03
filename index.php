@@ -2,21 +2,11 @@
 
 declare(strict_types=1);
 
-spl_autoload_register(function ($class) {
-    require __DIR__ . "/src/core/$class.php";
-});
-
-$constroller = new Controller;
-// $validation = new Validation;
-// $sanitization = new Sanitization;
-// $messages = new Messages;
-// $authorization = new Authorization;
-$database = new Database(
-    Host: "127.0.0.1",
-    Name: "oop_login_db",
-    User: "root",
-    Password: "123"
+spl_autoload_register(
+    function (string $class) {
+        require_once __DIR__ . "/src/$class.php";
+    }
 );
-// $registration = new Registration;
-// $login = new Login;
-// $session = new Session;
+
+$_SESSION['userId'] ?? header('location: ./src/UI/signup.html');
+die;

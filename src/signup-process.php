@@ -9,12 +9,11 @@ use \Helpers\UserSignUpValidation;
 use \Controller\UserController;
 
 $database = new Database(
-    Host: '127.0.0.1',
-    DBName: 'oop_login_db',
+    Host: 'localhost',
+    DBName: 'oop-login-db',
     User: 'root',
-    Password: '123'
+    Password: ''
 );
-$database->getConnection();
 $controller = new UserController($database);
 $validation = new UserSignUpValidation;
 

@@ -2,8 +2,8 @@
 
 namespace Services;
 
-use \PDO;
-use \PDOException;
+use PDO;
+use PDOException;
 
 class Database extends PDO implements DatabaseInterface
 {
@@ -25,7 +25,7 @@ class Database extends PDO implements DatabaseInterface
             ]);
             return $pdo;
         } catch (PDOException $exception) {
-            throw new PDOException($exception->getMessage());
+            echo $exception->getMessage();
         }
     }
 }

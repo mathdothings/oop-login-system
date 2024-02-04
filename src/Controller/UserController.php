@@ -3,8 +3,8 @@
 namespace Controller;
 
 use \Services\Database;
-use \PDO;
-use \PDOException;
+use PDO;
+use PDOException;
 
 class UserController
 {
@@ -31,7 +31,7 @@ class UserController
             $connection->commit();
         } catch (PDOException $exception) {
             $connection->rollBack();
-            throw new PDOException($exception->getMessage());
+            echo $exception->getMessage();
         } finally {
             $statement = null;
             $connection = null;

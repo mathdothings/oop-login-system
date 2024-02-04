@@ -2,6 +2,9 @@
 
 namespace Controller;
 
+require_once './Helpers/helpers.php';
+// echo basePath();
+
 use \Services\Database;
 use PDO;
 use PDOException;
@@ -28,7 +31,8 @@ class UserController
             $statement->bindValue('name', $user['name'], PDO::PARAM_STR);
             $statement->bindValue('passwordHash', $user['passwordHash'], PDO::PARAM_STR);
             $statement->execute();
-            $connection->commit();
+            // $connection->commit();
+            // $this->redirect('./UI/login.php');
         } catch (PDOException $exception) {
             $connection->rollBack();
             echo $exception->getMessage();
@@ -36,5 +40,10 @@ class UserController
             $statement = null;
             $connection = null;
         }
+    }
+
+    function redirect(string $page): void
+    {
+        header("location: $page");
     }
 }

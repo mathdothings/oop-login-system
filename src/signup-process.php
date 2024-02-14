@@ -1,5 +1,4 @@
 <?php
-
 spl_autoload_register(function ($class) {
     require_once __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
 });
@@ -14,21 +13,24 @@ $database = new Database(
     User: 'root',
     Password: ''
 );
+
 $controller = new UserController($database);
 $validation = new UserSignUpValidation;
 
-$signUpInput = [
+$userSignUpInput = [
     'name' => $name = $_POST['name'] ?? '',
     'email' => $email = $_POST['email'] ?? '',
     'password' => $password = $_POST['password'] ?? '',
     'repeatPassword' => $_POST['repeat-password'] ?? ''
 ];
 
-if ($validation->validate($signUpInput) === true) {
+if ($validation->validate($userSignUpInput) === true) {
     $user = [
-        'name' => $signUpInput['name'],
-        'email' => $signUpInput['email'],
-        'passwordHash' => password_hash($signUpInput['password'], PASSWORD_DEFAULT)
+        'name' => $userSignUpInput['name'],
+        'email' => $userSignUpInput['email'],
+        'passwordHash' => password_hash($userSignUpInput['password'], PASSWORD_DEFAULT)
     ];
     $controller->post($user);
 }
+
+// header('location: ./UI/signup.php');

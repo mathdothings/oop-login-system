@@ -2,7 +2,8 @@
 
 namespace Controller;
 
-require_once './Helpers/helpers.php';
+require_once __DIR__ . '/../Helpers/helpers.php';
+require_once __DIR__ . '/../../config.php';
 
 use \Services\Database;
 use PDO;
@@ -31,7 +32,7 @@ class UserController
             $statement->bindValue('passwordHash', $user['passwordHash'], PDO::PARAM_STR);
             $statement->execute();
             // $connection->commit();
-            $this->redirect('./UI/login.php');
+            $this->redirect(ROOT_PATH . '/src/UI/login.php');
         } catch (PDOException $exception) {
             $connection->rollBack();
             echo $exception->getMessage();

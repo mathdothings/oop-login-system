@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . '/../signup-process.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,11 +13,11 @@
 
 <body>
     <h1>Sign Up!</h1>
-    <form action="../signup-process.php" method="post">
+    <form action="" method="post">
         <label for="name">Name:</label>
-        <input type="text" name="name" id="name" required>
+        <input type="text" name="name" id="name" required value="<?= htmlspecialchars($_POST["name"] ?? "") ?>">
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
+        <input type="email" name="email" id="email" required value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required>
         <label for="password">Repeat Password</label>

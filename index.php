@@ -1,8 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
-define('BASE_PATH', dirname(__DIR__ . '/../'));
 ?>
 <!DOCTYPE html>
 <html lang="en">

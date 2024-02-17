@@ -1,6 +1,6 @@
 <?php
 spl_autoload_register(function ($class) {
-    require_once __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
+    require_once __DIR__ . '/' . str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
 });
 
 use \Services\Database;
@@ -24,13 +24,12 @@ $userSignUpInput = [
     'repeatPassword' => $_POST['repeat-password'] ?? ''
 ];
 
-if ($validation->validate($userSignUpInput) === true) {
-    $user = [
-        'name' => $userSignUpInput['name'],
-        'email' => $userSignUpInput['email'],
-        'passwordHash' => password_hash($userSignUpInput['password'], PASSWORD_DEFAULT)
-    ];
-    $controller->post($user);
-}
+$rules = $validation->validate($userSignUpInput);
+if ($rules !== true) return;
 
-// header('location: ./UI/signup.php');
+$user = [
+    'name' => $userSignUpInput['name'],
+    'email' => $userSignUpInput['email'],
+    'passwordHash' => password_hash($userSignUpInput['password'], PASSWORD_DEFAULT)
+];
+$controller->post($user);

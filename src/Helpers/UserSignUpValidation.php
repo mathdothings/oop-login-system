@@ -4,20 +4,22 @@ namespace Helpers;
 
 class UserSignUpValidation extends UserValidation
 {
-
     function validateName($name): bool
     {
-        if (empty($name)) $this->BrokenRules[] = 'Name must be provided!';
-        if (strlen($name) < 3) $this->BrokenRules[] = 'Name must be greater than 3 charactes!';
+        $brokenNameRules = [];
+        if (empty($name)) $this->BrokenRules['name'][] = 'Name must be provided!';
+        if (strlen($name) < 3) $this->BrokenRules['name'][] = 'Name must be greater than 3 charactes!';
+        $brokenNameRules[] = $this->BrokenRules['name'];
         if (!$this->BrokenRules) return true;
         return false;
     }
 
     function validateRepeatPassword(string $password, string $repeatPassword): bool
     {
+        $brokenRepeatPassowordRules = [];
         if ($password !== $repeatPassword)
-            $this->BrokenRules[] = "Passwords don't match!";
-
+            $this->BrokenRules['repeatPassword'][] = "Passwords don't match!";
+        $brokenRepeatPassowordRules[] = $this->BrokenRules['repeatPassword'];
         if (!$this->BrokenRules) return true;
         return false;
     }

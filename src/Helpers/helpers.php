@@ -1,6 +1,8 @@
 <?php
-function basePath(string $path = ''): string
+
+require_once __DIR__ . '/../../config.php';
+
+function basePath($path = ""): string
 {
-    define('BASE_PATH', dirname(__DIR__ . '/../', 2));
-    return BASE_PATH . $path;
+    return ROOT_PATH . $path;
 }

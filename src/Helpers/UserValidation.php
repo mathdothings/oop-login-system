@@ -12,7 +12,7 @@ class UserValidation
         return false;
     }
 
-    function validatePassword(string $password, string $repeatPassword): bool
+    function validatePassword(string $password): bool
     {
         if (strlen($password) < 8)
             $this->BrokenRules[] = 'Password must have more than 7 digits!';
@@ -22,8 +22,6 @@ class UserValidation
             $this->BrokenRules[] = 'Password must have one or more uppercase letters!';
         if (!preg_match("/[0-9]/", $password))
             $this->BrokenRules[] = 'Password must have one or more numerical digits!';
-        if ($password !== $repeatPassword)
-            $this->BrokenRules[] = "Passwords don't match!";
 
         if (!$this->BrokenRules) return true;
         return false;

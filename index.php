@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 <body>
     <h2>Do you have a accout?</h2>
-    <a href="./src/UI/login.php"><button>Log in!</button></a>
+    <a href="./src/View/login.php"><button>Log in!</button></a>
     <h2>If you aren't a user already, please</h2>
-    <a href="./src/UI/signup.php"><button>Sign up!</button></a>
+    <a href="./src/View/signup.php"><button>Sign up!</button></a>
 </body>
 
 </html>

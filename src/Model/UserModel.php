@@ -4,12 +4,7 @@ namespace Model;
 
 class UserModel extends Model implements UserModelInterface
 {
-    private string $Email;
-    private string $Name;
-
-    public function __construct(string $email, string $name)
+    public function __construct(private string $Email, private string $Name)
     {
-        $this->Email = $email;
-        $this->Name = $name;
     }
 }

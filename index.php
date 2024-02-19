@@ -1,22 +1,27 @@
-<?php
-
-declare(strict_types=1);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/bamboo.css">
-    <title>Login System!</title>
+    <link rel="stylesheet" href="./src/View/Style/style.css?v=<?php echo time(); ?>">
+    <title>Accessible</title>
 </head>
 
 <body>
-    <h2>Do you have a accout?</h2>
-    <a href="./src/View/login.php"><button>Log in!</button></a>
-    <h2>If you aren't a user already, please</h2>
-    <a href="./src/View/signup.php"><button>Sign up!</button></a>
+    <article class="center-container">
+        <main class="main">
+            <form action="" method="post" class="flex-container main__form__card main__form" autocomplete="off">
+                <h1 class="main__form__title">Accessible</h1>
+                <label for="email"></label>
+                <input type="email" name="email" id="login-email" autofocus placeholder="Email" class="main__form__input">
+                <label for="password"></label>
+                <input type="password" name="password" id="login-password" placeholder="Password" class="main__form__input">
+                <button type="submit" class="main__form__button">Log in!</button>
+            </form>
+            <p class="main__form__paragraph main__form__card">Don't have an account? <a href="./src/View/signup.php" class="main__form__paragraph__link">Sign Up!</a></p>
+        </main>
+    </article>
 </body>
 
 </html>
